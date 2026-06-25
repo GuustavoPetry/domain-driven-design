@@ -1,3 +1,4 @@
+import { Either, rigth } from "@/core/entities/either";
 import { Question } from "../../entities/question";
 import type { QuestionRepo } from "../repositories/question-repo";
 
@@ -7,9 +8,12 @@ interface CreateQuestionRequest {
     authorId: string;
 }
 
-interface CreateQuestionResponse {
-    question: Question;
-}
+type CreateQuestionResponse = Either<
+    null,
+    {
+        question: Question
+    }
+>
 
 export class CreateQuestion {
     constructor(private questionRepo: QuestionRepo) { }
@@ -28,8 +32,6 @@ export class CreateQuestion {
 
         await this.questionRepo.create(question);
 
-        return {
-            question
-        }
+        return rigth({ question })
     }
 }
