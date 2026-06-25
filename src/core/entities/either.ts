@@ -5,11 +5,11 @@ export class Left<L, R> {
         this.value = value;
     }
 
-    isLeft() {
+    isLeft(): this is Left<L, R> {
         return true;
     }
 
-    isRigth() {
+    isRigth(): this is Rigth<L, R> {
         return false;
     }
 }
@@ -21,11 +21,11 @@ export class Rigth<L, R> {
         this.value = value;
     }
 
-    isLeft() {
+    isLeft(): this is Left<L, R>  {
         return false;
     }
 
-    isRigth() {
+    isRigth(): this is Rigth<L, R> {
         return true;
     }
 }
