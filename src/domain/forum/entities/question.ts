@@ -34,6 +34,14 @@ export class Question extends Entity<QuestionProps> {
         this.props.updatedAt = new Date();
     }
 
+    set title(value: string) {
+        this.props.title = value;
+    }
+
+    set content(value: string) {
+        this.props.content = value;
+    }
+
     static create(props: QuestionProps, id?: UniqueEntityID) {
         const question = new Question(props, id);
 

@@ -12,8 +12,8 @@ test("success", () => {
 
 
     if (result.isRigth()) {
-        console.log(result);
-        //  Sem utilidade - apenas pra visualizar narrowing com -> : this is
+        const narrow = result.value;
+        //  Sem utilidade - apenas pra visualizar narrowing com -> : this is Rigth<L, R>
     }
 
     expect(result.isRigth()).toBe(true);
@@ -24,8 +24,8 @@ test("error", () => {
     const result = doSomething(false);
 
     if (result.isLeft()) {
-        console.log(result);
-        // Sem utilidade - apenas pra visualizar narrowing com -> : this is
+        const narrow = result.value;
+        // Sem utilidade - apenas pra visualizar narrowing com -> : this is Left<L, R>
     }
 
     expect(result.isLeft()).toBe(true);

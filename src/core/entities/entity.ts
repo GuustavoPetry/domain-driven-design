@@ -4,8 +4,8 @@ export abstract class Entity<Props> {
     private _id: UniqueEntityID;
     protected props: Props;
 
-    toString() {
-        return this._id.value;
+    get id () {
+        return this._id;
     }
 
     constructor(props: Props, id?: UniqueEntityID) {
