@@ -1,7 +1,7 @@
-import { Either, left, rigth } from "@/core/errors/either";
-import { ResourceNotFoundError } from "@/core/errors/errors/resource-not-found-error";
+import { Either, left, rigth } from "@/core/error/either";
+import { ResourceNotFoundError } from "@/core/error/errors/resource-not-found-error";
 import { Question } from "../../entities/question";
-import { NotAllowedError } from "@/core/errors/errors/not-allowed-error";
+import { NotAllowedError } from "@/core/error/errors/not-allowed-error";
 import { QuestionRepo } from "../repositories/question-repo";
 
 interface EditQuestionRequest {

@@ -1,4 +1,4 @@
-import { Entity } from "@/core/entities/entity";
+import { AggregateRoot } from "@/core/entities/aggregate-root";
 import type { UniqueEntityID } from "@/core/entities/unique-entity-id";
 
 export interface QuestionProps {
@@ -9,7 +9,7 @@ export interface QuestionProps {
     authorId: string;
 }
 
-export class Question extends Entity<QuestionProps> {
+export class Question extends AggregateRoot<QuestionProps> {
     get title() {
         return this.props.title;
     }

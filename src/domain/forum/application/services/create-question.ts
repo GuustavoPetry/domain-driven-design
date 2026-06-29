@@ -1,4 +1,4 @@
-import { Either, rigth } from "@/core/errors/either";
+import { Either, rigth } from "@/core/error/either";
 import { Question } from "../../entities/question";
 import type { QuestionRepo } from "../repositories/question-repo";
 

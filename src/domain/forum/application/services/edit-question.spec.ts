@@ -2,7 +2,7 @@ import { makeQuestion } from "@test/factories/make-question";
 import { InMemoryQuestionRepo } from "@test/repositories/in-memory-question-repo";
 import { beforeEach, describe, expect, it } from "vitest";
 import { EditQuestion } from "./edit-question";
-import { NotAllowedError } from "@/core/errors/errors/not-allowed-error";
+import { NotAllowedError } from "@/core/error/errors/not-allowed-error";
 
 let inMemoryQuestionRepo: InMemoryQuestionRepo;
 let sut: EditQuestion;
