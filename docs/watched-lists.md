@@ -1,5 +1,5 @@
 # Classe AggregateRoot
-1. inicialmente uma classe abstrata vazia (será utilizado com domainEvents)
+1. inicialmente uma classe abstrata vazia (futuramente será utilizado com domainEvents)
 
 # WatchedList
 1. consiste em uma classe abstrata que contém como props 4 arrays (currentItems, initial, new, removed)
