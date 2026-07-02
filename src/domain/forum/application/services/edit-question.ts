@@ -44,7 +44,7 @@ export class EditQuestion {
 
         if (!isAuthor) return left(new NotAllowedError());
 
-        const currentAttachments = await this.questionAttachmentRepo.findManyByQuestionId(question.id);
+        const currentAttachments = await this.questionAttachmentRepo.findManyByQuestionId(questionId);
 
         const attachmentList = new QuestionAttachmentList(currentAttachments);
 
@@ -68,7 +68,7 @@ export class EditQuestion {
 
         return rigth({
             question
-        })
+        });
 
     }
 }

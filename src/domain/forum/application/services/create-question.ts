@@ -31,7 +31,7 @@ export class CreateQuestion {
         const question = Question.create({
             title,
             content,
-            authorId,
+            authorId: new UniqueEntityID(authorId),
         });
 
         const questionAttachments = attachmentIds.map((attachmentId) => {

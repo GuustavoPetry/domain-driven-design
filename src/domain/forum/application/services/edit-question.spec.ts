@@ -35,8 +35,6 @@ describe("Edit Question Service", () => {
             attachmentIds: ["3", "4"]
         });
 
-        console.log(inMemoryQuestionRepo.items[0]?.attachments.current)
-
         expect(result.isRigth()).toBe(true);
         expect(inMemoryQuestionRepo.items[0]?.attachments.current).toHaveLength(2);
         expect(inMemoryQuestionRepo.items[0]?.attachments.current).toEqual([

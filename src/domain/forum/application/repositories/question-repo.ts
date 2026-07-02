@@ -5,5 +5,8 @@ export interface QuestionRepo {
 
     save(question: Question): Promise<Question>;
 
+    delete(authorId: string, questionId: string): Promise<void>;
+
     findById(id: string): Promise<Question | null>;
+
 }

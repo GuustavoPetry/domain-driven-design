@@ -21,6 +21,14 @@ export class InMemoryQuestionRepo implements QuestionRepo {
         return question;
     }
 
+    async delete(questionId: string): Promise<void> {
+        const removeQuestion = this.items.filter((item) => item.id.toString() !== questionId);
+
+        await this.questionAttachmentRepo.deleteManyByQuestionId(questionId)
+
+        this.items = removeQuestion;
+    }
+
     async findById(id: string): Promise<Question | null> {
         const question = this.items.find(item => item.id.toString() === id);
 

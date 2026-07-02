@@ -1,8 +1,7 @@
-import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 import { QuestionAttachment } from "../../entities/question-attachment";
 
 export interface QuestionAttachmentsRepo {
-    findManyByQuestionId(questionId: UniqueEntityID): Promise<QuestionAttachment[]>;
+    findManyByQuestionId(questionId: string): Promise<QuestionAttachment[]>;
 
-    deleteManyByQuestionId(questionId: UniqueEntityID): Promise<void>;
+    deleteManyByQuestionId(questionId: string): Promise<void>;
 }
