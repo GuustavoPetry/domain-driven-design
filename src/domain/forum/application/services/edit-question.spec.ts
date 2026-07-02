@@ -3,14 +3,21 @@ import { InMemoryQuestionRepo } from "@test/repositories/in-memory-question-repo
 import { beforeEach, describe, expect, it } from "vitest";
 import { EditQuestion } from "./edit-question";
 import { NotAllowedError } from "@/core/error/errors/not-allowed-error";
+import { InMemoryQuestionAttachmentsRepo } from "@test/repositories/in-memory-question-attachments-repo";
+import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 
+let inMemoryQuestionAttachmentsRepo: InMemoryQuestionAttachmentsRepo;
 let inMemoryQuestionRepo: InMemoryQuestionRepo;
 let sut: EditQuestion;
 
 describe("Edit Question Service", () => {
     beforeEach(() => {
-        inMemoryQuestionRepo = new InMemoryQuestionRepo();
-        sut = new EditQuestion(inMemoryQuestionRepo);
+        inMemoryQuestionAttachmentsRepo = new InMemoryQuestionAttachmentsRepo();
+        inMemoryQuestionRepo = new InMemoryQuestionRepo(inMemoryQuestionAttachmentsRepo);
+        sut = new EditQuestion(
+            inMemoryQuestionRepo,
+            inMemoryQuestionAttachmentsRepo
+        );
     });
 
     it("should be able to edit question", async () => {
@@ -21,18 +28,21 @@ describe("Edit Question Service", () => {
 
         inMemoryQuestionRepo.create(question);
 
-        await sut.execute({
+        const result = await sut.execute({
             authorId: question.authorId.toString(),
             questionId: question.id.toString(),
             title: "New Title",
+            attachmentIds: ["3", "4"]
         });
 
-        expect(inMemoryQuestionRepo.items[0]).toEqual(
-            expect.objectContaining({
-                title: "New Title",
-                content: "Old Content",
-            })
-        );
+        console.log(inMemoryQuestionRepo.items[0]?.attachments.current)
+
+        expect(result.isRigth()).toBe(true);
+        expect(inMemoryQuestionRepo.items[0]?.attachments.current).toHaveLength(2);
+        expect(inMemoryQuestionRepo.items[0]?.attachments.current).toEqual([
+            expect.objectContaining({ attachmentId: new UniqueEntityID("3") }),
+            expect.objectContaining({ attachmentId: new UniqueEntityID("4") }),
+        ])
     });
 
     it("should not be able to edit question from another user", async () => {
@@ -44,6 +54,7 @@ describe("Edit Question Service", () => {
             authorId: "Another User",
             questionId: question.id.toString(),
             title: "New Title",
+            attachmentIds: []
         });
 
         expect(result.isLeft()).toBe(true);

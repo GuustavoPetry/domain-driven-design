@@ -1,8 +1,11 @@
+import { QuestionAttachmentsRepo } from "@/domain/forum/application/repositories/question-attachments-repo";
 import type { QuestionRepo } from "@/domain/forum/application/repositories/question-repo";
 import type { Question } from "@/domain/forum/entities/question";
 
 export class InMemoryQuestionRepo implements QuestionRepo {
     public items: Question[] = [];
+
+    constructor(private questionAttachmentRepo: QuestionAttachmentsRepo) { }
 
     async create(question: Question) {
         this.items.push(question);

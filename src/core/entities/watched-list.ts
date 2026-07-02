@@ -1,12 +1,12 @@
 export abstract class WatchedList<T> {
-    private current: T[];
+    public current: T[];
     private initial: T[];
     private new: T[];
     private removed: T[];
 
-    constructor(initialItems: T[]) {
-        this.current = [...initialItems];
-        this.initial = [...initialItems];
+    constructor(initialItems?: T[]) {
+        this.current = initialItems?.slice() || [];
+        this.initial = initialItems?.slice() || [];
         this.new = [];
         this.removed = [];
     }

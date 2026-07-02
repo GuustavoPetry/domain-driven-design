@@ -8,7 +8,7 @@ export function makeQuestion(override?: Partial<QuestionProps>, id?: UniqueEntit
         title: faker.lorem.sentences(4),
         content: faker.lorem.sentences(8),
         createdAt: new Date(),
-        authorId: randomUUID(),
+        authorId: new UniqueEntityID(),
         ...override
     },
         id
