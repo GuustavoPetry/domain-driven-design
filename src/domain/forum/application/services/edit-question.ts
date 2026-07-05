@@ -1,11 +1,11 @@
 import { Either, left, rigth } from "@/core/error/either";
 import { ResourceNotFoundError } from "@/core/error/errors/resource-not-found-error";
-import { Question } from "../../entities/question";
+import { Question } from "../../enterprise/entities/question";
 import { NotAllowedError } from "@/core/error/errors/not-allowed-error";
 import { QuestionRepo } from "../repositories/question-repo";
 import { QuestionAttachmentsRepo } from "../repositories/question-attachments-repo";
-import { QuestionAttachmentList } from "../../entities/question-attachment-list";
-import { QuestionAttachment } from "../../entities/question-attachment";
+import { QuestionAttachmentList } from "../../enterprise/entities/question-attachment-list";
+import { QuestionAttachment } from "../../enterprise/entities/question-attachment";
 import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 
 interface EditQuestionRequest {

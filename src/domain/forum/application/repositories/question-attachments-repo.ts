@@ -1,4 +1,4 @@
-import { QuestionAttachment } from "../../entities/question-attachment";
+import { QuestionAttachment } from "../../enterprise/entities/question-attachment";
 
 export interface QuestionAttachmentsRepo {
     findManyByQuestionId(questionId: string): Promise<QuestionAttachment[]>;

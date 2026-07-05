@@ -1,9 +1,9 @@
 import { Either, rigth } from "@/core/error/either";
-import { Question } from "../../entities/question";
+import { Question } from "../../enterprise/entities/question";
 import type { QuestionRepo } from "../repositories/question-repo";
-import { QuestionAttachment } from "../../entities/question-attachment";
+import { QuestionAttachment } from "../../enterprise/entities/question-attachment";
 import { UniqueEntityID } from "@/core/entities/unique-entity-id";
-import { QuestionAttachmentList } from "../../entities/question-attachment-list";
+import { QuestionAttachmentList } from "../../enterprise/entities/question-attachment-list";
 
 interface CreateQuestionRequest {
     title: string;

@@ -1,5 +1,5 @@
 import { QuestionAttachmentsRepo } from "@/domain/forum/application/repositories/question-attachments-repo";
-import { QuestionAttachment } from "@/domain/forum/entities/question-attachment";
+import { QuestionAttachment } from "@/domain/forum/enterprise/entities/question-attachment";
 
 export class InMemoryQuestionAttachmentsRepo implements QuestionAttachmentsRepo {
     public items: QuestionAttachment[] = [];

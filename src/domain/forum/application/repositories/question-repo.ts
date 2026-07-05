@@ -1,4 +1,4 @@
-import type { Question } from "../../entities/question";
+import type { Question } from "../../enterprise/entities/question";
 
 export interface QuestionRepo {
     create(question: Question): Promise<Question>;

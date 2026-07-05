@@ -1,5 +1,5 @@
 import { UniqueEntityID } from "@/core/entities/unique-entity-id";
-import { Question, type QuestionProps } from "@/domain/forum/entities/question";
+import { Question, type QuestionProps } from "@/domain/forum/enterprise/entities/question";
 import { faker } from "@faker-js/faker";
 import { randomUUID } from "node:crypto";
 

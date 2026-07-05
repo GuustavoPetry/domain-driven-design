@@ -2,13 +2,16 @@ import { InMemoryQuestionRepo } from "@test/repositories/in-memory-question-repo
 import { beforeEach, describe, expect, it } from "vitest";
 import { CreateQuestion } from "./create-question";
 import { UniqueEntityID } from "@/core/entities/unique-entity-id";
+import { InMemoryQuestionAttachmentsRepo } from "@test/repositories/in-memory-question-attachments-repo";
 
+let inMemoryQuestionAttachment: InMemoryQuestionAttachmentsRepo;
 let inMemoryQuestionRepo: InMemoryQuestionRepo;
 let sut: CreateQuestion;
 
 describe("Create Question Service", () => {
     beforeEach(() => {
-        inMemoryQuestionRepo = new InMemoryQuestionRepo();
+        inMemoryQuestionAttachment = new InMemoryQuestionAttachmentsRepo();
+        inMemoryQuestionRepo = new InMemoryQuestionRepo(inMemoryQuestionAttachment);
         sut = new CreateQuestion(inMemoryQuestionRepo);
     });
 
