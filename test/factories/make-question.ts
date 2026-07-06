@@ -1,9 +1,11 @@
 import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 import { Question, type QuestionProps } from "@/domain/forum/enterprise/entities/question";
 import { faker } from "@faker-js/faker";
-import { randomUUID } from "node:crypto";
 
-export function makeQuestion(override?: Partial<QuestionProps>, id?: UniqueEntityID) {
+export function makeQuestion(
+    override?: Partial<QuestionProps>,
+    id?: UniqueEntityID
+) {
     const question = Question.create({
         title: faker.lorem.sentences(4),
         content: faker.lorem.sentences(8),

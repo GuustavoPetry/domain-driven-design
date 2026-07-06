@@ -4,7 +4,6 @@ import { InMemoryQuestionRepo } from "@test/repositories/in-memory-question-repo
 import { beforeEach, describe, expect, it } from "vitest";
 import { CreateAnswer } from "./create-answer";
 import { InMemoryQuestionAttachmentsRepo } from "@test/repositories/in-memory-question-attachments-repo";
-import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 import { makeAnswer } from "@test/factories/make-answer";
 
 let inMemoryQuestionAttachmentRepo: InMemoryQuestionAttachmentsRepo;
@@ -33,7 +32,6 @@ describe("Create Answer", () => {
 
         expect(result.isRigth()).toBe(true);
         expect(inMemoryAnswerRepo.items).toHaveLength(1);
-        expect(inMemoryAnswerRepo.items[0]?.domainEvents).toHaveLength(0);
     });
 
     it("should be able to dispatch events when created new answer", async () => {

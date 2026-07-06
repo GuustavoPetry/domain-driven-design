@@ -2,7 +2,7 @@ import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 import { Notification, NotificationProps } from "@/domain/notification/enterprise/entities/notification";
 
 export function makeNotification(
-    override?: NotificationProps,
+    override?: Partial<NotificationProps>,
     id?: UniqueEntityID
 ) {
     const notification = Notification.create({

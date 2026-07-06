@@ -4,7 +4,7 @@ import { SendNotification } from "../services/send-notification";
 import { DomainEvents } from "@/core/events/domain-events";
 import { AnswerCreatedEvent } from "@/domain/forum/enterprise/events/answer-created-event";
 
-export class OnQuestionCreated implements EventHandler {
+export class OnAnswerCreated implements EventHandler {
     constructor(
         private questionRepo: QuestionRepo,
         private sendNotification: SendNotification
